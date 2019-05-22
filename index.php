@@ -3,19 +3,19 @@
 <body>
 <?php
 $x=8;
-echo "\nValue is now $x.\n";
+echo "Value is now $x.\n";
 $sum=$x+2 ;
-echo "\nAdd 2. Value is now $sum.\n";
+	echo "Add 2. Value is now $sum.\n";
 $sum=$sum-4;
-echo "Subtract by 4. Value is now 6.\n";
+echo "Subtract by 4. Value is now $sum.\n";
 $sum=$sum*5;
-echo "Multiply by 5. Value is now 30.\n";
+echo "Multiply by 5. Value is now $sum.\n";
 $sum=$sum/3;
-echo "Divide by 3. Value is now 10.\n";
+echo "Divide by 3. Value is now $sum.\n";
 $sum++;
-echo "Increment value by one. Value is now 11.\n";
+echo "Increment value by one. Value is now $sum.\n";
 $sum--;
-echo "Decrement value by one. Value is now 10.\n";
+echo "Decrement value by one. Value is now $sum.\n";
 
  ?>
 </body>

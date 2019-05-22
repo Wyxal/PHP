@@ -1,17 +1,15 @@
 <?php
- $rows = $_POST ['width'];  
- $columns = $_POST ['height'];  
 $width = 7;
 $height = 7;
-    $i=1;
+    $i;
     $table='<table border="1">';
-    for($r=0;$r<$width;$r++)
+    for($r=1;$r<=$width;$r++)
     {
 	    $table .= '<tr>';
 	   
-        for($c=0;$c<$height;$c++)
+        for($c=1;$c<=$height;$c++)
 	{
-	    $i=($c+1)*($r+1);
+	    $i=$c*$r;
             $table .= "<td>$i</td>";
             
         }

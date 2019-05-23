@@ -1,5 +1,11 @@
 <form action= "http://localhost:8000" method="post">
-<p>Day: <input type="text" name="Day" /></p>
+<p>Monday: <input type="checkbox" name="day" value="1" /></p>
+<p>Tuesday: <input type="checkbox" name="day" value="2" /></p>
+<p>Wednesday: <input type="checkbox" name="day" value="3" /></p>
+<p>Trursday: <input type="checkbox" name="day" value="4" /></p>
+<p>Friday: <input type="checkbox" name="day" value="5" /></p>
+<p>Saturday: <input type="checkbox" name="day" value="6" /></p>
+<p>Sunday: <input type="checkbox" name="day" value="7" /></p>
 <input type="submit" name="submit" value="Submit" />
 </form>
 
@@ -8,28 +14,28 @@
 
 
 <?php
-switch($_POST['Day'])
+switch($_POST['day'])
 {
-    case "Monday":
-        echo(" Laugh on Monday, laugh for danger.". $_POST['Day'] . "<br />\n");
+    case '1':
+        echo(" Laugh on Monday, laugh for danger.");
         break;
-    case "Tuesday":
-        echo (" Laugh on Tuesday, kiss a stranger." . $_POST['Day'] . "<br />\n");
+    case '2':
+        echo (" Laugh on Tuesday, kiss a stranger.");
         break;
-    case "Wednesday":
-        echo (" Laugh on Wednesday, laugh for a letter." . $_POST['Day'] . "<br />\n");
+    case '3':
+        echo (" Laugh on Wednesday, laugh for a letter.");
 	break;
-    case "Thursday":
-        echo (" Laugh on Thursday, something better." . $_POST['Day'] . "<br />\n");
+    case '4':
+        echo (" Laugh on Thursday, something better.");
         break;
-    case "Friday":
-        echo (" Laugh on Friday, laugh for sorrow." . $_POST['Day'] . "<br />\n");
+    case '5':
+        echo (" Laugh on Friday, laugh for sorrow.");
         break;
-    case "Saturday":
-        echo (" Laugh on Saturday, joy tomorrow." . $_POST['Day'] . "<br />\n");
+    case '6':
+        echo (" Laugh on Saturday, joy tomorrow.");
         break;
-    case "Sunday":
-        echo (" Laugh on Sunday, have a nice day." . $_POST['Day'] ."<br />\n");
+    case '7':
+        echo (" Laugh on Sunday, have a nice day.");
 	break;
 }
 ?>

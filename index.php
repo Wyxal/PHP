@@ -1,20 +1,34 @@
+<?php/*
+$startDate = strtotime('this week monday');
+$endDate = strtotime('this week sunday');
+
+$date = $startDate;
+while ($date <= $endDate) {
+    echo date('l',$date).PHP_EOL;
+    $date = strtotime('+1 day',$date);
+}*/
+?>
+What day of week is?
 <form action= "http://localhost:8000" method="post">
-<p>Monday: <input type="checkbox" name="day" value="1" /></p>
-<p>Tuesday: <input type="checkbox" name="day" value="2" /></p>
-<p>Wednesday: <input type="checkbox" name="day" value="3" /></p>
-<p>Trursday: <input type="checkbox" name="day" value="4" /></p>
-<p>Friday: <input type="checkbox" name="day" value="5" /></p>
-<p>Saturday: <input type="checkbox" name="day" value="6" /></p>
-<p>Sunday: <input type="checkbox" name="day" value="7" /></p>
-<input type="submit" name="submit" value="Submit" />
+<select name="formday">
+<option value="">Select...</option>
+<option value="1">Monday</option>
+<option value="2">Tuesday</option>
+<option value="3">Wednesday</option>
+<option value="4">Thursday</option>
+<option value="5">Friday</option>
+<option value="6">Saturday</option>
+<option value="7">Sunday</option>
+</select>
+<input type="submit" value="Submit" />
 </form>
 
 
 
 
-
 <?php
-switch($_POST['day'])
+date_default_timezone_set('UTC');
+switch($_POST['formday'])
 {
     case '1':
         echo(" Laugh on Monday, laugh for danger.");
@@ -37,5 +51,8 @@ switch($_POST['day'])
     case '7':
         echo (" Laugh on Sunday, have a nice day.");
 	break;
+    default : 
+	    echo date("l");
+	    break;
 }
 ?>

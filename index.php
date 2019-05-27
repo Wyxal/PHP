@@ -18,11 +18,11 @@ class Game
 	
 	private function createDeck()
 	{
-		for ($i = 0; $i < 13; $i++)
+		for ($c = 0; $c < 13; $c++)
 		{
-			for($x = 0; $x < 4; $x++)
+			for($s = 0; $s < 4; $s++)
 			{
-		array_push($this->DECK,$this->cards[$i].$this->suits[$x]);
+		array_push($this->DECK,$this->cards[$c].$this->suits[$s]);
 			}
 		}
 	}
@@ -90,23 +90,34 @@ class Game
 		echo "Face: ".$face."<br />Suit: ".$suit."<br />";
 	}
     public function winCheck($uValue, $dValue, $stand){
-        if($uValue > 21){
-            echo "<div style='background-color:red; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>You Lose, better luck next time :)</div>";
+	    if($uValue > 21)
+	{
+            echo "<div style='background-color:red; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>You've lost, better luck next time :)</div>";
             return 1;
         }
-        else if ($dValue > 21){
-            echo "<div style='background-color:green; text-align:center; color:;black font-size:30px; font-weight:bold; padding:25px;'>You Win, you are good. </div>";
+	else if ($dValue > 21)
+	{
+            echo "<div style='background-color:green; text-align:center; color:;black font-size:30px; font-weight:bold; padding:25px;'>You've won, you are good. </div>";
             return 1;
         }
-        else if ($stand == 1){
-            if($uValue > $dValue){
-               echo "<div style='background-color:green; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>You Win, you are good.</div>";
+	else if ($stand == 1)
+	{
+		if($uValue > $dValue)
+	    {
+               echo "<div style='background-color:green; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>You've won, you are good.</div>";
                 return 1;
             }
-            else{
-                echo "<div style='background-color:red; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>You Lose, better luck next time :)</div>";
+		else if ($uValue < $dValue)
+	    {
+                echo "<div style='background-color:red; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>You've lost, better luck next time :)</div>";
                 return 1;
-            }
+		}
+		else
+	    {
+		    echo "<div style='background-color:orange; text-align:center; color:black; font-size:30px; font-weight:bold; padding:25px;'>It's a draw.</div>";
+		return 1;
+
+	    }
         }
         return 0;
     }
@@ -158,23 +169,23 @@ body {
 <div align='center' style="background-color:beige; padding:5px; width:300px; margin:auto;">
   <div style="text-decoration:underline; font-weight:bold;">Your Hand is:</div><br/>
     <?php
-for ($i = 0; $i < sizeof($_SESSION['userHand']); $i++) 
+for ($x = 0; $x < sizeof($_SESSION['userHand']); $x++) 
 {
-        echo $game->translateCard($_SESSION['userHand'][$i]) . "<br />";
+        echo $game->translateCard($_SESSION['userHand'][$x]) . "<br />";
 }
     echo "<div style='text-decoration:underline; font-weight:bold;'><br /><br />Dealer's hand: </div><br />";
 	if ($gameOver == 0)
 	{
-		for ($j = 1; $j < sizeof($_SESSION['dealerHand']); $j++) 
+		for ($y = 1; $y < sizeof($_SESSION['dealerHand']); $y++) 
 		{
-			echo $game->translateCard($_SESSION['dealerHand'][$j]) . "<br />";
+			echo $game->translateCard($_SESSION['dealerHand'][$y]) . "<br />";
 		}
 	}
 	else
 	{
-		for ($j = 0; $j < sizeof($_SESSION['dealerHand']); $j++) 
+		for ($y = 0; $y < sizeof($_SESSION['dealerHand']); $y++) 
 		{
-			echo $game->translateCard($_SESSION['dealerHand'][$j]) . "<br />";
+			echo $game->translateCard($_SESSION['dealerHand'][$y]) . "<br />";
 		}
 	}
 

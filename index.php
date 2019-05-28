@@ -1,3 +1,22 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+<style type="text/css">
+body {
+        margin:0px;
+     }
+</style>
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
+
+</head>
+<body> 
+<img src='http://www.manilastandardonline.com/wp-content/uploads/2017/10/Uncover-Various-Blackjack-Games-For-Different-Preferences.jpg'/>
+</body>
+</html>
 <?PHP
 class Game
 {
@@ -82,10 +101,14 @@ class Game
 		{
 			return 10;
 		}
-		else
+		else if (preg_match($num_pattern,$face))
 		{
-			return 1;
-			echo "ACE.";
+                       while($uValue <= 10)
+			return 11;
+		}
+		else
+		{ 
+			  return 1;
 		}
 		echo "Face: ".$face."<br />Suit: ".$suit."<br />";
 	}
@@ -158,17 +181,65 @@ else if (isset($_GET['stand']))
 
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+<script type='text/javaScript' src="bootstrap/dist/js/bootstrap.min.js">
+</script>
 <style type="text/css">
 body {
 	margin:0px;
      }
 </style>
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
+
 </head>
 <body>
-    <h2 style='text-align:center;'>Blackjack</h2>
-<div align='center' style="background-color:beige; padding:5px; width:300px; margin:auto;">
-  <div style="text-decoration:underline; font-weight:bold;">Your Hand is:</div><br/>
-    <?php
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLong">
+  Rules
+</button>
+<div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">Rules of Blackjack</h5>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<p>
+1. Aces may be counted as 1 or 11 points, 2 to 9 according to pip value, and tens and face cards count as ten points.
+
+2. The value of a hand is the sum of the point values of the individual cards. Except, a "blackjack" is the highest hand, consisting of an ace and any 10-point card, and it outranks all other 21-point hands.
+
+3. After the players have bet, the dealer will give two cards to each player and two cards to himself. One of the dealer cards is dealt face up. The facedown card is called the "hole card."
+
+4. If the dealer has a ten or an ace showing, then he will peek at his facedown card to see if he has a blackjack. If he does, then he will turn it over immediately.
+
+5. If the dealer does have a blackjack, then all wagers will lose, unless the player also has a blackjack, which will result in a push. The dealer will resolve insurance wagers at this time.
+
+5. The following are the choices available to the player:
+
+   a) Stand: Player stands pat with his cards.
+   b) Hit: Player draws another card (and more if he wishes). If this card causes the player's total points to exceed 21 (known as "breaking" or "busting") then he loses.
+
+6. After each player has had his turn, the dealer will turn over his hole card. If the dealer has 16 or less, then he will draw another card. A special situation is when the dealer has an ace and any number of cards totaling six points (known as a "soft 17"). At some tables, the dealer will also hit a soft 17.
+
+7. If the dealer goes over 21 points, then any player who didn't already bust will win.
+
+8. If the dealer does not bust, then the higher point total between the player and dealer will win.</p>   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
+</div>
+<div style="text-decoration:underline; font-weight:bold;">Your Hand is:</div><br/>
+<?php
 for ($x = 0; $x < sizeof($_SESSION['userHand']); $x++) 
 {
         echo $game->translateCard($_SESSION['userHand'][$x]) . "<br />";

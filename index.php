@@ -1,6 +1,7 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<script type='text/javaScript' src="bootstrap.min.js">
 <style type="text/css">
 body {
         margin:0px;
@@ -15,8 +16,6 @@ $('#myModal').on('shown.bs.modal', function () {
 </head>
 <body> 
 <img src='http://www.manilastandardonline.com/wp-content/uploads/2017/10/Uncover-Various-Blackjack-Games-For-Different-Preferences.jpg'/>
-</body>
-</html>
 <?PHP
 class Game
 {
@@ -179,24 +178,6 @@ else if (isset($_GET['stand']))
 	
 ?>
 
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
-<script type='text/javaScript' src="bootstrap/dist/js/bootstrap.min.js">
-</script>
-<style type="text/css">
-body {
-	margin:0px;
-     }
-</style>
-<script>
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-</script>
-
-</head>
-<body>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLong">
   Rules
 </button>
